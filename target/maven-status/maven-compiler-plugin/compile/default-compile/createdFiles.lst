@@ -1,0 +1,14 @@
+com\library\lab4sring_boot\model\Author.class
+com\library\lab4sring_boot\controller\BookController.class
+com\library\lab4sring_boot\repository\AuthorRepository.class
+com\library\lab4sring_boot\model\Tag.class
+com\library\lab4sring_boot\repository\BookRepository.class
+com\library\lab4sring_boot\repository\PublisherRepository.class
+com\library\lab4sring_boot\controller\AuthorController.class
+com\library\lab4sring_boot\repository\TagRepository.class
+com\library\lab4sring_boot\DTO\CreateBookRequest.class
+com\library\lab4sring_boot\Lab4SringBootApplication.class
+com\library\lab4sring_boot\service\BookService.class
+com\library\lab4sring_boot\service\AuthorService.class
+com\library\lab4sring_boot\model\Book.class
+com\library\lab4sring_boot\model\Publisher.class
