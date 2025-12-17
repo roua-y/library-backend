@@ -32,4 +32,14 @@ public class BookController {
     public Set<BookResponse> getAllBooks() {
         return bookService.getAllBooks();
     }
+
+    @GetMapping("/recent")
+    public java.util.List<BookResponse> getRecentBooks() {
+        return bookService.getRecentBooks();
+    }
+
+    @GetMapping("/count")
+    public long countBooks() {
+        return bookService.countBooks();
+    }
 }

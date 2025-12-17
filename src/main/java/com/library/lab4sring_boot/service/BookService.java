@@ -21,9 +21,9 @@ public class BookService {
     private final TagRepository tagRepository;
 
     public BookService(BookRepository bookRepository,
-                       AuthorRepository authorRepository,
-                       PublisherRepository publisherRepository,
-                       TagRepository tagRepository) {
+            AuthorRepository authorRepository,
+            PublisherRepository publisherRepository,
+            TagRepository tagRepository) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
         this.publisherRepository = publisherRepository;
@@ -39,7 +39,8 @@ public class BookService {
 
         // 2️⃣ Load Publisher
         Publisher publisher = publisherRepository.findById(request.getPublisherId())
-                .orElseThrow(() -> new RuntimeException("Publisher with ID " + request.getPublisherId() + " not found"));
+                .orElseThrow(
+                        () -> new RuntimeException("Publisher with ID " + request.getPublisherId() + " not found"));
 
         // 3️⃣ Load Tags
         Set<Tag> tags = new HashSet<>();
@@ -85,6 +86,21 @@ public class BookService {
         return books.stream()
                 .map(this::mapToBookResponse)
                 .collect(Collectors.toSet());
+    }
+
+    @Transactional(readOnly = true)
+    public java.util.List<BookResponse> getRecentBooks() {
+        // Fetch all, sort by ID desc (newest first), limit to 3
+        return bookRepository.findAll().stream()
+                .sorted((b1, b2) -> b2.getId().compareTo(b1.getId()))
+                .limit(3)
+                .map(this::mapToBookResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public long countBooks() {
+        return bookRepository.count();
     }
 
     // Helper method to map Book entity to DTO

@@ -26,4 +26,9 @@ public class PublisherController {
     public List<Publisher> getPublishers() {
         return publisherService.getAllPublishers();
     }
+
+    @GetMapping("/count")
+    public long countPublishers() {
+        return publisherService.countPublishers();
+    }
 }

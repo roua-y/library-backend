@@ -22,4 +22,8 @@ public class TagService {
     public List<Tag> getAllTags() {
         return tagRepository.findAll();
     }
+
+    public long countTags() {
+        return tagRepository.count();
+    }
 }

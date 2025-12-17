@@ -26,4 +26,9 @@ public class TagController {
     public List<Tag> getTags() {
         return tagService.getAllTags();
     }
+
+    @GetMapping("/count")
+    public long countTags() {
+        return tagService.countTags();
+    }
 }

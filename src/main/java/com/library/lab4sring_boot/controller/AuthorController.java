@@ -1,7 +1,5 @@
 package com.library.lab4sring_boot.controller;
 
-
-
 import com.library.lab4sring_boot.model.Author;
 import com.library.lab4sring_boot.service.AuthorService;
 import jakarta.validation.Valid;
@@ -27,5 +25,10 @@ public class AuthorController {
     @GetMapping
     public List<Author> getAuthors() {
         return authorService.getAllAuthors();
+    }
+
+    @GetMapping("/count")
+    public long countAuthors() {
+        return authorService.countAuthors();
     }
 }

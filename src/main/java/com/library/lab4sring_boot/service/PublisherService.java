@@ -1,6 +1,5 @@
 package com.library.lab4sring_boot.service;
 
-
 import com.library.lab4sring_boot.model.Publisher;
 import com.library.lab4sring_boot.repository.PublisherRepository;
 import org.springframework.stereotype.Service;
@@ -22,5 +21,9 @@ public class PublisherService {
 
     public List<Publisher> getAllPublishers() {
         return publisherRepository.findAll();
+    }
+
+    public long countPublishers() {
+        return publisherRepository.count();
     }
 }
